@@ -1,0 +1,11 @@
+<package format="2">
+  <name>robot_navigation</name>
+  <version>0.2.0</version>
+  <description>Sample RAPP application using robot navigation capabilities</description>
+  <maintainer email="dudekwa@gmail.com">Wojciech Dudek</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_depend>rapp-robots-api</build_depend>
+</package>
