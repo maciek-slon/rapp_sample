@@ -12,7 +12,7 @@ setup_rapp()
 
 create_rapp(
 	NAME rapp_navigation
-	LIBS rapp_robot_localization
+	LIBS rapp_robot_localization rapp_robot_info
 	SRCS main.cpp
 )
 install(FILES
