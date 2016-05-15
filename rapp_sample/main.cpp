@@ -1,10 +1,9 @@
 #include <iostream>
 
-#include <rapp/objects/picture/picture.hpp>
-#include <rapp-robots-api/vision/vision.hpp>
+#include <rapp-robots-api/info/info.hpp>
 
-int main() {
-	rapp::robot::vision vis;
-	std::cout << "Hello world!\n";
-	return 0;
+int main(int argc, char * argv[]) {
+    rapp::robot::info info(argc, argv);
+    std::cout << "Hello world! Application is run from: " << info.base_path() << "\n";
+    return 0;
 }
