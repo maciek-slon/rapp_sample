@@ -1,0 +1,11 @@
+<package format="2">
+  <name>talk_to_me</name>
+  <version>0.2.0</version>
+  <description>Sample RAPP application - number uessing game</description>
+  <maintainer email="m.stefanczyk@elka.pw.edu.pl">Maciej Stefańczyk</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_depend>rapp-robots-api</build_depend>
+</package>
