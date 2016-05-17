@@ -30,7 +30,7 @@ int main(int argc, char * argv[]) {
 
     // convert captured image to OpenCV format
     cv::Mat img;
-    img = cv::imdecode(picture->bytearray(), CV_LOAD_IMAGE_ANYDEPTH);
+    img = cv::imdecode(picture->bytearray(), -1);
 
     // change color space to HSV
     cv::cvtColor(img, img, CV_BGR2HSV);
