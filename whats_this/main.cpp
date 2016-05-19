@@ -52,23 +52,18 @@ int main(int argc, char * argv[]) {
     
     std::vector<ro::object> objs;
     
-    objs = rapp::cloud::object_recognition_detect("maciek", pic, names, models, 1, host, "9090");
-    std::cout << "Found " << objs.size() << " objects.\n";
-    for(const auto & o : objs)
-        std::cout << "\t" << o.name() << ", " << o.score() << "\n";
-
     rapp::cloud::object_recognition_clear("maciek", host, "9090");
 
     rapp::cloud::object_recognition_learn("maciek", pic, "cat", host, "9090");
     
     rapp::cloud::object_recognition_load("maciek", {"cat"}, host, "9090");
     
-    objs = rapp::cloud::object_recognition_detect("maciek", pic, {}, {}, 1, host, "9090");
+    objs = rapp::cloud::object_recognition_detect("maciek", pic, 1, host, "9090");
     std::cout << "Found " << objs.size() << " objects.\n";
     for(const auto & o : objs)
         std::cout << "\t" << o.name() << ", " << o.score() << "\n";
     
-    objs = rapp::cloud::object_recognition_detect("dudek", pic, {}, {}, 1, host, "9090");
+    objs = rapp::cloud::object_recognition_detect("dudek", pic, 1, host, "9090");
     std::cout << "Found " << objs.size() << " objects.\n";
     for(const auto & o : objs)
         std::cout << "\t" << o.name() << ", " << o.score() << "\n";
