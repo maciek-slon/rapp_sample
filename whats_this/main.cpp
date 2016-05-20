@@ -68,5 +68,24 @@ int main(int argc, char * argv[]) {
     for(const auto & o : objs)
         std::cout << "\t" << o.name() << ", " << o.score() << "\n";
 
+
+
+
+
+    rapp::cloud::object_recognition_clear("rapp", host, "9090");
+    names = {"ahmad", "dilmah", "lipton", "ahmad2"};
+    for (const auto & n : names) {
+        auto pic = std::make_shared<ro::picture>(info.get_path("share/whats_this/" + n + ".png"));
+        rapp::cloud::object_recognition_learn("rapp", pic, n, host, "9090", false);
+    }
+    
+    rapp::cloud::object_recognition_load("rapp", names, host, "9090");
+    
+    auto scn = std::make_shared<ro::picture>(info.get_path("share/whats_this/scene2.png"));
+    objs = rapp::cloud::object_recognition_detect("rapp", pic, 1, host, "9090");
+    std::cout << "Found " << objs.size() << " objects.\n";
+    for(const auto & o : objs)
+        std::cout << "\t" << o.name() << ", " << o.score() << "\n";
+        
     return 0;
 }

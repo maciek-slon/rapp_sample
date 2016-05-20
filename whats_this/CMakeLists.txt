@@ -11,13 +11,12 @@ include(RappMacros)
 
 setup_rapp()
 
-add_definitions(-std=c++11)
-
 FILE(GLOB MODELS "models/*.jpg")
+FILE(GLOB TEAS "teas/*.png")
 
 create_rapp(
     NAME ${PROJECT_NAME}
     SRCS main.cpp
     LIBS ${OpenCV_LIBS}
-    FILES ${MODELS}
+    FILES ${MODELS} ${TEAS}
 )
