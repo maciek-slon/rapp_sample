@@ -39,7 +39,7 @@ int main(int argc, char * argv[]) {
     // create navigation module
     rapp::robot::navigation nav(argc, argv);
  
-    rapp::cloud::path_planning_upload_map(info.get_path("share/lets_go/empty.yaml"), info.get_path("share/lets_go/empty.png"), user, "empty", host, "9090", true);
+    rapp::cloud::path_planning_upload_map(info.get_path("share/lets_go/empty.yaml"), info.get_path("share/lets_go/empty.png"), user, "empty", host, "9090", false);
     
     ro::pose_stamped start(
         ro::header(), 
