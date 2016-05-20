@@ -13,6 +13,9 @@
 #include <rapp-cloud-api/path_planning_plan.hpp>
 
 #include <rapp-cloud-api/face_detection.hpp>
+#include <rapp-cloud-api/face_recognition.hpp>
+
+#include <rapp-cloud-api/speech_detection_sphinx4.hpp>
 
 using cp = rapp::robot::vision::camera_params;
 using cr = rapp::robot::vision::camera_resolution; 
@@ -54,14 +57,9 @@ int main(int argc, char * argv[]) {
         )
     );
     
-    rapp::cloud::path_planning_plan(user, "empty", "NAO", "dijkstra", start, goal, host, "9090", true);
-/*    
-    auto pic = vis.capture_image(0, cr::vga, "png");
-    auto faces = rapp::cloud::face_detection(pic, false, host);
+    auto path = rapp::cloud::path_planning_plan(user, "empty", "NAO", "dijkstra", start, goal, host, "9090", false);
     
-    for (auto f : faces) {
-        std::cout << "Face center: " << f.cx() << "," << f.cy() << "\n";
-    }*/
+    nav.moveAlongPath(path);
 
     return 0;
 }
